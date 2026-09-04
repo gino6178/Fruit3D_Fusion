@@ -1,0 +1,9 @@
+runs/
+grids/*.pt
+!grids/orange.pt
+carrier/
+data/*/ds_faces/
+data/*/dreamsim_ckpt/
+__pycache__/
+*.pyc
+*.log

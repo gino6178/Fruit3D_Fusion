@@ -1,0 +1,7 @@
+# the method and its scorers
+torch>=2.0
+torchvision
+numpy<2
+pillow
+scipy
+# the held-out DreamSim of Table 1 needs its own environment; see README
