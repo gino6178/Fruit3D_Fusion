@@ -1,0 +1,14 @@
+{
+  "orange_spl_trans_00": {
+    "src": "/home/gino/project/Fruit3D_Fusion/data/orange/spl_trans/or_trans_00.png",
+    "classes": ["peel", "flesh", "white core"],
+    "map": {"0": 0, "1": 1, "2": 2}
+  },
+  "orange_spl_long_00": {
+    "src": "/home/gino/project/Fruit3D_Fusion/data/orange/spl_long/or_long_00.png",
+    "classes": ["peel", "flesh", "white core"],
+    "map": {"0": 0, "9": 0, "10": 0, "11": 0, "12": 0, "13": 0,
+            "2": 1, "4": 1, "5": 1, "6": 1, "7": 1,
+            "1": 2, "3": 2, "8": 2}
+  }
+}

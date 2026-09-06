@@ -206,71 +206,8 @@ Evaluated on held-out photographs of unseen specimens, the lifted orange reaches
 <p class="lead">Figure&nbsp;2 is the whole of it, and Figure&nbsp;3 is the same pipeline as the states of one object&#8217;s arrays. The carrier is fitted first (section&nbsp;3.1, restated from the superseded paper). Its interior is then sampled anew from a product of two single-image diffusion priors on a cylindrical state, with the carrier&#8217;s layout and shell as data terms (sections&nbsp;3.2&ndash;3.4), and written back into the carrier&#8217;s cells (section&nbsp;3.5). The cut operator and the solver interface are the carrier&#8217;s and are not touched.</p>
 
 <figure class="flow" style="margin:16px 0 26px">
-<svg viewBox="0 0 960 500" xmlns="http://www.w3.org/2000/svg" font-family="Charter,Georgia,serif" font-size="13" role="img" aria-label="the pipeline: two photograph families become two single-image priors; the carrier is fitted and sampled into a cylindrical state; one chain denoises both families on that state and writes the interior back into the lattice, which is cut in closed form">
-<defs><marker id="ah" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#5c5c5c"/></marker></defs>
-<style>.b{fill:#f7f7f7;stroke:#111;stroke-width:1.1}.d{fill:#fff;stroke:#a8412a;stroke-width:1.2}.t{fill:#111}.m{fill:#5c5c5c;font-size:11.5px}.a{stroke:#5c5c5c;stroke-width:1.2;fill:none;marker-end:url(#ah)}.h{font-weight:600}</style>
-
-<!-- inputs -->
-<text x="18" y="24" class="h">inputs, per object</text>
-<rect x="18" y="34" width="150" height="52" class="b"/><text x="28" y="54" class="t">2&#8211;3 longitudinal</text><text x="28" y="72" class="m">photographs, different specimens</text>
-<rect x="18" y="98" width="150" height="52" class="b"/><text x="28" y="118" class="t">2&#8211;3 transverse</text><text x="28" y="136" class="m">photographs, different specimens</text>
-<rect x="18" y="176" width="150" height="66" class="b"/><text x="28" y="196" class="t">the carrier</text><text x="28" y="212" class="m">two-level lattice, fitted</text><text x="28" y="227" class="m">pose-free (&#167;3.1)</text>
-
-<!-- canonicalise -->
-<rect x="212" y="34" width="132" height="52" class="b"/><text x="222" y="54" class="t">canonical frame</text><text x="222" y="72" class="m">white ground, 82%, 256 px</text>
-<rect x="212" y="98" width="132" height="52" class="b"/><text x="222" y="118" class="t">polar unwrap</text><text x="222" y="136" class="m">(r, &#966;), 128&#215;512 strip</text>
-<rect x="212" y="176" width="132" height="66" class="b"/><text x="222" y="196" class="t">sample into</text><text x="222" y="212" class="t">the cylinder</text><text x="222" y="227" class="m">A<tspan class="m" font-style="italic">c</tspan>[r,&#966;,z], mask M</text>
-
-<!-- priors -->
-<rect x="388" y="34" width="150" height="52" class="d"/><text x="398" y="54" class="t">prior &#949;<tspan font-style="italic">L</tspan></text><text x="398" y="72" class="m">single-image DDPM, 30k</text>
-<rect x="388" y="98" width="150" height="52" class="d"/><text x="398" y="118" class="t">prior &#949;<tspan font-style="italic">T</tspan></text><text x="398" y="136" class="m">single-image DDPM, 4k</text>
-
-<path d="M168,60 L212,60" class="a"/><path d="M168,124 L212,124" class="a"/><path d="M168,209 L212,209" class="a"/>
-<path d="M344,60 L388,60" class="a"/><path d="M344,124 L388,124" class="a"/>
-
-<!-- the chain -->
-<rect x="582" y="20" width="360" height="290" fill="none" stroke="#111" stroke-width="1.1" stroke-dasharray="4 3"/>
-<text x="594" y="40" class="h">one chain on one state, t = 0.3T &#8594; 0  (&#167;3.3, Alg. 1)</text>
-<rect x="594" y="52" width="336" height="40" class="b"/><text x="604" y="70" class="t">x<tspan font-style="italic" dy="3" font-size="10">t</tspan><tspan dy="-3"> = &#8730;&#257;<tspan font-style="italic" dy="3" font-size="10">t</tspan><tspan dy="-3"> A + &#8730;(1&#8722;&#257;<tspan font-style="italic" dy="3" font-size="10">t</tspan><tspan dy="-3">) &#949;</tspan></tspan></tspan></text><text x="604" y="85" class="m">the state, noised; outside M the carrier under the same noise</text>
-<rect x="594" y="104" width="160" height="56" class="d"/><text x="604" y="122" class="t">longitudinal slices</text><text x="604" y="137" class="m">columns &#966;<tspan font-style="italic">k</tspan>, &#966;<tspan font-style="italic">k</tspan>+&#960; &#8594; (s,z)</text><text x="604" y="152" class="m">&#949;<tspan font-style="italic">L</tspan> &#8594; x&#770;<tspan font-style="italic" dy="3" font-size="10">0</tspan><tspan dy="-3" font-size="10" baseline-shift="super">L</tspan></text>
-<rect x="770" y="104" width="160" height="56" class="d"/><text x="780" y="122" class="t">transverse slices</text><text x="780" y="137" class="m">plane z<tspan font-style="italic">j</tspan> &#8594; (r,&#966;) strip</text><text x="780" y="152" class="m">&#949;<tspan font-style="italic">T</tspan> &#8594; x&#770;<tspan font-style="italic" dy="3" font-size="10">0</tspan><tspan dy="-3" font-size="10" baseline-shift="super">T</tspan></text>
-<path d="M674,92 L674,104" class="a"/><path d="M850,92 L850,104" class="a"/>
-<rect x="594" y="176" width="336" height="36" class="b"/><text x="604" y="192" class="t">x&#770;<tspan font-style="italic" dy="3" font-size="10">0</tspan><tspan dy="-3"> = w(r) x&#770;</tspan><tspan font-style="italic" dy="3" font-size="10">0</tspan><tspan dy="-3" font-size="10" baseline-shift="super">L</tspan><tspan dy="0"> + (1&#8722;w(r)) x&#770;</tspan><tspan font-style="italic" dy="3" font-size="10">0</tspan><tspan dy="-3" font-size="10" baseline-shift="super">T</tspan></text><text x="604" y="206" class="m">longitudinal leads at the axis, transverse away from it &#8212; eq. (6)</text>
-<path d="M674,160 L674,176" class="a"/><path d="M850,160 L850,176" class="a"/>
-<rect x="594" y="224" width="160" height="40" class="b"/><text x="604" y="241" class="t">layout: ILVR</text><text x="604" y="256" class="m">low-pass of A<tspan font-style="italic">c</tspan> pinned, &#963;=16 px</text>
-<rect x="770" y="224" width="160" height="40" class="b"/><text x="780" y="241" class="t">shell: never written</text><text x="780" y="256" class="m">x&#770;<tspan font-style="italic" dy="3" font-size="10">0</tspan><tspan dy="-3"> &#8592; M x&#770;</tspan><tspan font-style="italic" dy="3" font-size="10">0</tspan><tspan dy="-3"> + (1&#8722;M) A</tspan><tspan font-style="italic">c</tspan></text>
-<path d="M674,212 L674,224" class="a"/><path d="M850,212 L850,224" class="a"/>
-<rect x="594" y="276" width="336" height="26" class="b"/><text x="604" y="293" class="t">re-noise to t&#8242; with the consistent &#949;&#773;  (DDIM), and repeat</text>
-<path d="M674,264 L674,276" class="a"/><path d="M850,264 L850,276" class="a"/>
-<path d="M942,289 C958,289 958,72 942,72" class="a"/>
-
-<!-- priors and carrier into the chain -->
-<path d="M538,60 C570,60 560,124 594,124" class="a"/><path d="M538,124 C570,124 570,168 600,168 L790,168 L790,161" class="a" stroke-dasharray="3 3"/>
-<path d="M344,209 C470,209 470,244 594,244" class="a"/>
-
-<!-- output -->
-<text x="18" y="292" class="h">output</text>
-<rect x="18" y="302" width="326" height="52" class="b"/><text x="28" y="322" class="t">write back once: interior cells &#8592; A at their centres</text><text x="28" y="340" class="m">skin cells keep their fitted colour; only interior colour changes (&#167;3.5)</text>
-<rect x="18" y="366" width="326" height="52" class="b"/><text x="28" y="386" class="t">closed-form planar cut, any plane, 8.6&#8211;16.5 ms</text><text x="28" y="404" class="m">the carrier&#8217;s operator, untouched (&#167;3.1); nothing generated at cut time</text>
-<path d="M582,300 C480,300 460,328 344,328" class="a"/>
-<path d="M181,354 L181,366" class="a"/>
-
-<!-- cylinder geometry -->
-<text x="400" y="292" class="h">the state</text>
-<g transform="translate(400,300)">
-<ellipse cx="80" cy="18" rx="62" ry="16" fill="#fff" stroke="#111" stroke-width="1"/>
-<path d="M18,18 L18,150 A62,16 0 0,0 142,150 L142,18" fill="#fff" stroke="#111" stroke-width="1"/>
-<path d="M18,150 A62,16 0 0,1 142,150" fill="none" stroke="#111" stroke-width="1" stroke-dasharray="2 2"/>
-<line x1="80" y1="2" x2="80" y2="166" stroke="#5c5c5c" stroke-width="1" stroke-dasharray="3 2"/>
-<path d="M28,10 L80,18 L132,26 L132,158 L80,150 L28,142 z" fill="#a8412a" fill-opacity=".14" stroke="#a8412a" stroke-width="1.2"/>
-<ellipse cx="80" cy="88" rx="62" ry="16" fill="#a8412a" fill-opacity=".14" stroke="#a8412a" stroke-width="1.2"/>
-<text x="150" y="100" class="m">transverse: one z, the (r,&#966;) disc</text>
-<text x="150" y="60" class="m">longitudinal: two &#966; columns</text><text x="150" y="74" class="m">&#966;<tspan font-style="italic">k</tspan> and &#966;<tspan font-style="italic">k</tspan>+&#960;, the (s,z) plane</text>
-<text x="150" y="130" class="m">both are selections of A[r,&#966;,z]:</text><text x="150" y="144" class="m">nothing is interpolated in the chain</text>
-<text x="70" y="186" class="m">z</text><text x="128" y="45" class="m">r</text><text x="96" y="176" class="m">&#966;</text>
-</g>
-</svg>
-<figcaption><span class="fnum">Figure 2</span><br><strong>The pipeline.</strong> Two photograph families become two single-image priors, the longitudinal one on canonical-frame images and the transverse one on polar strips. The carrier is fitted first and sampled into one cylindrical state with its interior mask. One reverse chain then denoises both families on that same state: each family reads its exact slices, the two clean estimates are combined by the radius rule of equation&nbsp;(6), the carrier&#8217;s low-pass is pinned on the longitudinal planes and its shell is never written, and the state is re-noised for the next step. At the end the interior is written into the carrier&#8217;s cells once and read by the carrier&#8217;s own closed-form cut.</figcaption>
+  <img src="assets/method_overview.svg" alt="method overview: two photograph families, their canonical and polar framings, two single-image priors, one cylindrical state whose two slice families are real cut faces, one reverse chain shown at each of its stages, and the cuttable asset" style="width:100%;border-radius:4px">
+  <figcaption><span class="fnum">Figure 2</span><br><strong>The method, with a real slice at every stage.</strong> <strong>(1&#8211;2)</strong> two or three photographs per family, canonicalised, the transverse ones unwrapped to polar strips in which the segment membranes are parallel stripes; <strong>(3)</strong> one single-image prior per family; <strong>(4)</strong> one cylindrical state \(A[r,\varphi,z]\), whose two slice families are exact selections &mdash; the planes drawn on it are the real ones; <strong>(5)</strong> one reverse chain: the noised carrier, each family&#8217;s own estimate, their combination by the radius rule of equation&nbsp;(6), the carrier&#8217;s low-pass pinned and its shell kept, and the state re-noised for the next step; <strong>(6)</strong> the interior written into the lattice cells once and read by the carrier&#8217;s closed-form cut, at planes the photographs supervised and at one they did not.</figcaption>
 </figure>
 
 <figure style="margin:16px 0 26px">

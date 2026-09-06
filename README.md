@@ -12,6 +12,10 @@ supplies the layout the priors cannot invent, and its shell is never written.
 
 **Paper and figures:** <https://gino6178.github.io/Fruit3D_Fusion/> (`index.html` in this repository).
 
+<p align="center"><img src="assets/method_overview.png" width="1000" alt="the method, with a real slice at every stage"></p>
+
+<p align="center"><em>Every panel is a real slice: the photographs, the polar strip the transverse prior works on, the state at each stage of the chain, and the faces the finished asset is cut at.</em></p>
+
 On held-out photographs of specimens the priors never saw, the orange scores **0.112 / 0.062 /
 0.087** (DreamSim, longitudinal / transverse / mean, lower is better) against the fitted carrier's
 0.148 / 0.077 / 0.113 and FruitNinja's 0.154. `code/reproduce.sh` reproduces exactly that, in
